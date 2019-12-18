@@ -1,0 +1,79 @@
+.guestbook{
+    margin: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.inputs{
+    display: flex;
+    flex-display: row;
+}
+.inputs__col{
+    display: flex;
+    flex-direction: column;
+}
+.inputs__col-right{
+    margin-left:20px;
+}
+.input{
+    font-size:16px;
+
+    outline: 0;
+
+    padding:14px 16px;
+    border:1px solid transparent;
+    background-color: #efefef;
+}
+.input--error{
+    border:1px solid red;
+}
+.textarea{
+    font-size:16px;
+
+    outline: 0;
+
+    padding:14px 16px;
+    border:1px solid transparent;
+    background-color: #efefef;
+
+    width:300px;
+    height:200px;
+}
+.textarea--error{
+    border:1px solid red;
+}
+.btn-c{
+    display:flex;
+}
+.btn-c__btn{
+    margin-top:20px;
+
+    padding:14px 16px;
+    font-weight:500;
+
+    background-color: #6683d9;
+    color:#fff;
+
+    cursor:pointer;
+}
+.btn:hover{
+    background-color: #5770ba;
+}
+.btn-response{
+    margin-top: 20px;
+}
+
+.record{
+    width:400px;
+    text-align:left;
+    margin-bottom:20px;
+    padding-bottom:20px;
+    border-bottom:1px solid #efefef;
+}
+.record__name{
+    font-weight:600;
+}
+.record__review{
+    margin-top:10px;
+}
