@@ -3,6 +3,7 @@ package com.sample;
 import com.google.gson.Gson;
 import com.sample.model.Records;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,8 +14,8 @@ import java.util.ArrayList;
 
 
 @WebServlet(
-        name = "recordsServlet",
-        urlPatterns = "/records"
+        name = "indexServlet",
+        urlPatterns = "/"
 )
 public class GuestbookServlet extends HttpServlet {
 
@@ -34,22 +35,38 @@ public class GuestbookServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        req.setAttribute("records", records);
+
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
+        requestDispatcher.forward(req, resp);
+
+        /*
         String json = new Gson().toJson(records);
 
         resp.setContentType("application/json");
         resp.setCharacterEncoding("UTF-8");
 
         resp.getWriter().write(json);
+        */
 
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        req.setCharacterEncoding("UTF-8");
+
         String user_name = req.getParameter("USER_NAME");
         String user_review = req.getParameter("USER_REVIEW");
 
         records.add(new Records(user_name, user_review));
+
+        req.setAttribute("records", records);
+
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("index.jsp");
+        requestDispatcher.forward(req, resp);
+
+        /*
 
         String json = new Gson().toJson(records);
 
@@ -57,6 +74,6 @@ public class GuestbookServlet extends HttpServlet {
         resp.setCharacterEncoding("UTF-8");
 
         resp.getWriter().write(json);
-
+        */
     }
 }
